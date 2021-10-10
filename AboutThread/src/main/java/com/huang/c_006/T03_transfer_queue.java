@@ -30,7 +30,7 @@ public class T03_transfer_queue {
         }, "t1").start();
 
 
-        new Thread(() -> {
+        /*new Thread(() -> {
             try {
                 for (char c : aC) {
                     queue.transfer(c);
@@ -39,6 +39,21 @@ public class T03_transfer_queue {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-        }, "t2").start();
+        }, "t2").start();*/
+
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    for (char c : aC) {
+                        queue.transfer(c);
+                        System.out.print(queue.take());
+                    }
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        },"t3").start();
     }
 }

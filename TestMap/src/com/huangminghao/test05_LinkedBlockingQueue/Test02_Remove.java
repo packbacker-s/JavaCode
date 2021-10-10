@@ -1,5 +1,6 @@
 package com.huangminghao.test05_LinkedBlockingQueue;
 
+import java.net.ServerSocket;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
@@ -37,5 +38,6 @@ public class Test02_Remove {
         //System.out.println(aq.poll(2, TimeUnit.SECONDS));
         //真正阻塞：队列为空，永远阻塞
         System.out.println(aq.take());
+
     }
 }
