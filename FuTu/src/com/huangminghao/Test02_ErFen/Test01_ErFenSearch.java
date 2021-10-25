@@ -63,7 +63,7 @@ public class Test01_ErFenSearch {
 
 
     //找有序数组中小于num的最you 位置 [1 2 3 4 5 6 7 8 9] num ->7
-    //                    index= 0 1 2 3 4 5 6 7 8  retIndex = 7
+    //                    index=  0 1 2 3 4 5 6 7 8  retIndex = 7
     //第一次 [6 7 8 9] num ->7
 
     public static int findIndexOfRight(int[] arr, int num) {
@@ -74,7 +74,7 @@ public class Test01_ErFenSearch {
         int r = arr.length - 1;
         int retIndex = -1;
         while (l <= r) {
-            int mid = (l + r) / 2;
+            int mid = (l + r) / 2;//mid = l + ((r - l) >> 1);
             if (arr[mid] <= num) {
                 l = mid + 1;
             } else {
@@ -98,12 +98,13 @@ public class Test01_ErFenSearch {
         if (N == 1) {
             return 0;
         }
-        if (arr[0] < arr[1]) {
+        if (arr[0] < arr[1]) {//观察最左边两个数
             return 0;
         }
-        if (arr[N - 1] < arr[N - 2]) {
+        if (arr[N - 1] < arr[N - 2]) {//观察最右边两个数
             return N - 1;
         }
+
         //arr大于二的时候
         int L = 0;
         int R = N - 1;
@@ -112,14 +113,11 @@ public class Test01_ErFenSearch {
             if (arr[mid] < arr[mid - 1] && arr[mid] < arr[mid + 1]) {
                 return mid;
             } else {
-                //1、左 > 我   我 > 右
-                //2、左 < 我   我 < 右
-                //3、左 < 我   我 > 右
-                //2 3情况
-                if (arr[mid] > arr[mid - 1]) {
-                    R = mid - 1;
-                } else {
-                    L = mid + 1;
+
+                if (arr[mid] > arr[mid - 1]) {//1、左 > 我   我 > 右
+                    R = mid - 1;              //2、左 < 我   我 < 右
+                } else {                      //3、左 < 我   我 > 右
+                    L = mid + 1;              //2 3情况
                 }
 
             }
