@@ -262,6 +262,29 @@ public class MyLinkedList {
         return slow;
     }
 
+    //删除倒数第k个节点
+    public static Node removeNthNodeFrom_EndOfList2 (Node head, int k) {
+        if (head == null) {
+            return null;
+        }
+        Node fast = head;
+        Node slow = head;
+        while (k > 0) {
+            if (fast.next != null) {
+                fast = fast.next;
+                k--;
+            } else {
+                return head.next;
+            }
+        }
+        while (fast.next != null) {
+            fast = fast.next;
+            slow = slow.next;
+        }
+        slow.next = slow.next.next;
+        return head;
+    }
+
 
 
     //给定一个x，  x的左边或右边 都大于等于/小于等于  x   单链表03
