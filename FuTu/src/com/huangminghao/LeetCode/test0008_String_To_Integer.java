@@ -43,7 +43,7 @@ package com.huangminghao.LeetCode;
  * @Date:2021/10/25
  * @Time:13:29
  */
-public class test0008String_To_Integer {
+public class test0008_String_To_Integer {
     public static int myAtoi(String s) {
         if (s == null || s.equals("")) {
             return 0;

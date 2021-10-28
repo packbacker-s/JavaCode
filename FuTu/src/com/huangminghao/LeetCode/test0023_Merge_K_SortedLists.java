@@ -41,13 +41,13 @@ public class test0023_Merge_K_SortedLists {
         }
         ListNode head = heap.poll();//大链表
         ListNode pre = head;
-        if (pre.next != null) {
+        if (pre.next != null) {//链表数组各个下标的头节点的next！=null 就放入堆里
             heap.add(pre.next);
         }
-        while (!heap.isEmpty()) {
-            ListNode cur = heap.poll();
+        while (!heap.isEmpty()) { //堆不空 ， 弹出
+            ListNode cur = heap.poll();//cur用来指向链表数组的节点
             pre.next = cur;
-            pre = cur;
+            pre = cur;//pre = pre.next;也行，好理解
             if (cur.next != null) {
                 heap.add(cur.next);
             }

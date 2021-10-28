@@ -45,8 +45,20 @@ public class test0020_ValidOfKuoHao {
         for (int i = 0; i < chars.length; i++) {
             if (chars[i] == '(')
                 count++;
-            else count--;
+            else {
+                count--;
+            }
+            if (count < 0) {
+                return false;
+            }
         }
         return count == 0;
+    }
+
+    public static void main(String[] args) {
+        String str1 = ")()()(";
+        String str2 = "(()())";
+        System.out.println(ValidOfKuoHao2(str1));
+        System.out.println(ValidOfKuoHao2(str2));
     }
 }
